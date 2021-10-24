@@ -1,0 +1,49 @@
+form{
+    padding: 10px 0px ;
+    position: relative;
+    /* border: 1px red solid; */
+
+}
+.input-container, .description-item-container, .success-container, .error-container, .warning-container{
+    display: flex;
+    justify-content:space-around;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    padding: 10px 0px ;
+    
+}
+.error-container, .success-container, .warning-container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.error-container{
+    background: #EE4B2B;
+}
+.success-container{
+    background:#96DED1;
+}
+.warning-container{
+    background: #CC5500;
+}
+.description-item-container{
+    justify-content: center;
+}
+.form-label, .form-input{
+    display: block;
+}
+.sumbit-form-item{
+    position: absolute;
+    /* background: blue; */
+    right: 10px;
+    bottom: 10px;
+
+}
+input[type='submit']{
+    height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+}
+input[type='text']{
+    height: 25px;
+}

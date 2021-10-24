@@ -1,0 +1,30 @@
+.content{
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 20px 0px;
+}
+.equipment-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 60%;
+    
+}
+.item-detail {
+    padding: 20px 0px;
+}
+.equipment-images{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: space-between;
+    width: 30%;
+
+}
+.item-image{
+    display: block;
+    width: 100%;
+    height: 100px;
+    
+}

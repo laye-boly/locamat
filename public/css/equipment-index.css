@@ -1,0 +1,20 @@
+.content{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+td, th{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+tr {
+    display: flex;
+    justify-content: space-between;
+}
+thead{
+    background: blue;
+}
+a {
+    color: blue;
+}

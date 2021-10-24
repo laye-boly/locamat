@@ -1,0 +1,47 @@
+.page {
+    position: relative;
+}
+.content{
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-edit{
+    width: 60%;
+}
+.equipment-images{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: space-between;
+    width: 30%;
+
+}
+.image-delete-form-container > img{
+    display: block;
+    width: 100%;
+    height: 200px;
+    
+}
+.image-delete-form-container{
+    position: relative;
+    width: 100%;
+    
+}
+.form-image-delete{
+    position: absolute;
+    right: -10px;
+    top: 40px;
+
+}
+
+.button{
+    background: #8B8000;
+    padding: 5px;
+    border-radius: 2px;
+    color: #50C878;
+}
+
+.toggle-display{
+    display: none;
+}

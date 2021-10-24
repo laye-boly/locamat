@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EquipmentController;
+use App\Http\Controllers\EquipmentApiController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\CalendarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +19,33 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+// début route equipment
+
+Route::get('/equipment/index', [EquipmentController::class, 'index'])->name('equipment.index');
+Route::get('/equipment/create', [EquipmentController::class, 'create'])->name('equipment.create');
+Route::post('/equipment/store', [EquipmentController::class, 'store'])->name('equipment.store');
+Route::get('/equipment/show/{equipment}', [EquipmentController::class, 'show'])->name('equipment.show');
+Route::get('/equipment/edit/{equipment}', [EquipmentController::class, 'edit'])->name('equipment.edit');
+Route::post('/equipment/update/{equipment}', [EquipmentController::class, 'update'])->name('equipment.update');
+Route::post('/equipment/delete', [EquipmentController::class, 'delete'])->name('equipment.delete');
+Route::get('/equipments/{equipment}', [EquipmentController::class, 'detailEquipment'])->name('equipment.detail');
+
+
+// fin route eéquipment
+
+// debut route image
+
+Route::post('/image/delete', [ImageController::class, 'delete'])->name('image.delete');
+
+// fin route image
+
+// debut route calendar
+
+Route::get('/calendar/index', [CalendarController::class, 'index'])->name('calendar.index');
+
+// fin route calendar
