@@ -18,5 +18,13 @@ class Reservation extends Model
         return $this->belongsToMany(Equipment::class, "equipment_reservation", "reservation_id", "equipment_id");
     }
 
+    /**
+     * Définition de la relation many-to-many entre Reservation et RentalOrReservationDay
+     */
+    public function reservationDays()
+    {
+        return $this->belongsToMany(RentalOrReservationDay::class, "reservation_day", "reservation_id", "day_id");
+    }
+
     
 }

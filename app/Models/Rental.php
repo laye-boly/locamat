@@ -17,4 +17,14 @@ class Rental extends Model
     {
         return $this->belongsToMany(Equipment::class, "equipment_rental", "rental_id", "equipment_id");
     }
+
+     /**
+     * Définition de la relation many-to-many entre Rental et RentalOrReservationDay
+     */
+    public function rentalDays()
+    {
+        return $this->belongsToMany(RentalOrReservationDay::class, "rental_day", "rental_id", "day_id");
+    }
+
+    
 }

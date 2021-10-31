@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddQuantityToEquipmentRental extends Migration
+class AddEmailPhoneToReservations extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddQuantityToEquipmentRental extends Migration
      */
     public function up()
     {
-        Schema::table('equipment_rental', function (Blueprint $table) {
-            $table->integer('quantity');
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->string('user_phone');
+            $table->string('user_email');
         });
     }
 
@@ -25,7 +26,7 @@ class AddQuantityToEquipmentRental extends Migration
      */
     public function down()
     {
-        Schema::table('equipment_rantal', function (Blueprint $table) {
+        Schema::table('reservations', function (Blueprint $table) {
             //
         });
     }

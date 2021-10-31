@@ -56,6 +56,10 @@
                          {{  Form::number('quantity', '', ['class' => 'form-input']) }}
                      </div>
                      <div class="form-item">
+                        {{ Form::label('unit_price', "Prix unitaire de Location ou de Réservation", ['class' => 'form-label']) }}
+                        {{  Form::number('unit_price', '', ['class' => 'form-input']) }}
+                    </div>
+                     <div class="form-item">
                          {{Form::label('file', "Télécharger les images d'illustration ")}}
                          {{Form::file('file[]', ['multiple' => 'multiple', 'class' => 'form-input'])}}
                      </div>

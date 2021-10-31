@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddQuantityToReservations extends Migration
+class AddUnitPriceToEquipments extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddQuantityToReservations extends Migration
      */
     public function up()
     {
-        Schema::table('reservations', function (Blueprint $table) {
-            $table->integer('quantity');
+        Schema::table('equipments', function (Blueprint $table) {
+            $table->integer('unit_price'); // Le prix de location et de reservation à l'unité
         });
     }
 
@@ -25,7 +25,7 @@ class AddQuantityToReservations extends Migration
      */
     public function down()
     {
-        Schema::table('reservations', function (Blueprint $table) {
+        Schema::table('equipments', function (Blueprint $table) {
             //
         });
     }

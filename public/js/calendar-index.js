@@ -77,9 +77,11 @@ renteds.forEach(rent => {
         do {
             const type = previousEquipment.getAttribute('data-type-equipment');
             const availableQuantity = previousEquipment.getAttribute('quantity-available');
+            const unitPrice = previousEquipment.getAttribute('unit-price');
             
             let checkboxDiv = ` <div class="checkbox">
                                 <div hidden class="${type}">${availableQuantity}</div>
+                                <div hidden class="${type}-unit-price">${unitPrice}</div>
                                 <div>
                                     <label for="equipment">${type}</label>
                                     <input type="checkbox" value="${type}" name="type">
@@ -165,13 +167,14 @@ function validateData(){
     sumbitEquipments.forEach(checkbox => {
         const equipment = checkbox.value
         const availableQuantity = document.querySelector('.'+equipment).innerHTML;
+        const unitPrice = document.querySelector('.'+equipment+'-unit-price').innerHTML;
         const submitedQuantity = document.querySelector('#'+equipment).value;
         if(parseInt(submitedQuantity) < 1 || parseInt(submitedQuantity) > availableQuantity || submitedQuantity == ''){
             alert(`La quantité à réserver pour les ${equipment}s doit être comprise entre 1 et ${availableQuantity}`);
             isValid = false;
             return;
         }
-        equipmentData[equipment] = {equipment : equipment, quantity: submitedQuantity};
+        equipmentData[equipment] = {equipment : equipment, quantity: submitedQuantity, unitPrice};
         
     });
     if(isValid){
@@ -302,11 +305,11 @@ function showSubmitedEquipmentDetail(equiments){
             tr.appendChild(tdQuantity);
 
             let tdPU = document.createElement('td');
-            tdPU.innerHTML = '1200'
+            tdPU.innerHTML = item.unitPrice;
             tr.appendChild(tdPU);
 
             let tdPT = document.createElement('td');
-            tdPT.innerHTML = '1250000';
+            tdPT.innerHTML = item.unitPrice * item.quantity;
             tr.appendChild(tdPT);
 
             tbody.appendChild(tr);

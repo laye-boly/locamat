@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddQuantityToEquipmentReservation extends Migration
+class AddConfirmationToReservations extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddQuantityToEquipmentReservation extends Migration
      */
     public function up()
     {
-        Schema::table('equipment_reservation', function (Blueprint $table) {
-            $table->integer('quantity');
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->string('confirmed')->default('non');
+            
         });
     }
 
@@ -25,7 +26,7 @@ class AddQuantityToEquipmentReservation extends Migration
      */
     public function down()
     {
-        Schema::table('equipment_reservation', function (Blueprint $table) {
+        Schema::table('reservations', function (Blueprint $table) {
             //
         });
     }

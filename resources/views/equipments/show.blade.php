@@ -28,6 +28,9 @@
                     Nombre Total : <strong>{{$equipment->quantity}}</strong>
                 </div>
                 <div class="item-detail">
+                    Prix unitaire de Location ou de Réservation : <strong>{{$equipment->unit_price}}</strong>
+                </div>
+                <div class="item-detail">
                     <strong>Description</strong> : 
                     <p>{{$equipment->description}}</p>
                 </div>

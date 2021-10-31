@@ -36,5 +36,13 @@ class Equipment extends Model
         return $this->hasMany(Image::class);
     }
 
+    /**
+     *  Définition de la relation one-to-many entre Equipement et RentalOrReservationDay
+     */
+    public function days()
+    {
+        return $this->hasMany(RentalOrReservationDay::class);
+    }
+
    
 }

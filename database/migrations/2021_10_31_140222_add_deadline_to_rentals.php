@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRentalsTable extends Migration
+class AddDeadlineToRentals extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateRentalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rentals', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-
+        Schema::table('rentals', function (Blueprint $table) {
+            $table->dateTime('deadline')->default('2021-11-01 11:00:00');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateRentalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rentals');
+        Schema::table('rentals', function (Blueprint $table) {
+            //
+        });
     }
 }

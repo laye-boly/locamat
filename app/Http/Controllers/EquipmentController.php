@@ -27,6 +27,9 @@ class EquipmentController extends Controller
             'quantity' => array('required',
                             'regex:#^\d+$#'
                         ),
+            'unit_price' => array('required',
+                            'regex:#^\d+$#'
+                        ),
             'description' => array('required'
                         ),
             'file' => 'required',
@@ -45,6 +48,7 @@ class EquipmentController extends Controller
         $equipment = new Equipment;
         $equipment->type = strtolower($request->input('type')) ;
         $equipment->quantity = $request->input('quantity');
+        $equipment->unit_price = $request->input('unit_price');
         $equipment->description = $request->input('description');
         $equipment->save();
         // dd($request->file('file'));
@@ -82,6 +86,9 @@ class EquipmentController extends Controller
             'quantity' => array('required',
                             'regex:#^\d+$#'
                         ),
+            'unit_price' => array('required',
+                        'regex:#^\d+$#'
+                    ),
             'description' => array('required'
                         ),
             'file.*' => 'mimes:jpeg,jpg,png'
@@ -104,6 +111,7 @@ class EquipmentController extends Controller
         
         $equipment->type = strtolower($request->input('type')) ;
         $equipment->quantity = $request->input('quantity');
+        $equipment->unit_price = $request->input('unit_price');
         $equipment->description = $request->input('description');
         $equipment->save();
         // dd($request->file('file'));

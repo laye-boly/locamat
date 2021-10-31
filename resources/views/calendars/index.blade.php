@@ -38,7 +38,7 @@
                         @if(count($weekSchedule[$key]) > 0)
                             <div class="equipment-schedule-container">
                                 @foreach ($weekSchedule[$key] as $daySchedule )
-                                    <div class="equipment-schedule" data-type-equipment="{{$daySchedule[0]->type}}" quantity-available="{{$daySchedule[1]}}">
+                                    <div class="equipment-schedule" data-type-equipment="{{$daySchedule[0]->type}}" quantity-available="{{$daySchedule[1]}}" unit-price="{{$daySchedule[0]->unit_price}}">
                                         <p>{{$daySchedule[0]->type}} : {{$daySchedule[1]}}</p>
                                         <p><button class="button"><a href="#" class="detail" id="{{$daySchedule[0]->id}}" data-quantity="{{$daySchedule[1]}}">voir détail</a></button></p>
                                     </div>

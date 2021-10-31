@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddQuantityToRentals extends Migration
+class AddDeadlineToReservations extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddQuantityToRentals extends Migration
      */
     public function up()
     {
-        Schema::table('rentals', function (Blueprint $table) {
-            $table->integer('quantity');
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->dateTime('deadline')->default('2021-11-01 11:00:00');
         });
     }
 
@@ -25,7 +25,7 @@ class AddQuantityToRentals extends Migration
      */
     public function down()
     {
-        Schema::table('rentals', function (Blueprint $table) {
+        Schema::table('reservations', function (Blueprint $table) {
             //
         });
     }
