@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\EquipmentApiController;
-use App\Http\Controllers\RentApiController;
+use App\Http\Controllers\OrderApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,6 +35,6 @@ Route::post('/image/delete', [ImageController::class, 'delete'])->name('image.de
 
 // debut route api location 
 
-Route::post('/rent/equipments', [RentApiController::class, 'store'])->name('rent.store');
+Route::post('/rent/equipments', [OrderApiController::class, 'store'])->name('rent.store');
 
 // fin route location

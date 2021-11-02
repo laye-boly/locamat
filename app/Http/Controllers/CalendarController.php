@@ -25,7 +25,7 @@ class CalendarController extends Controller
             $weekSchedule[$dateFormatService->formatDate($dayTimestamp)] = $availbleEquipments;
           
         }
-        
+       
         return view('calendars.index', ['weekSchedule' => $weekSchedule]);
     }
 }

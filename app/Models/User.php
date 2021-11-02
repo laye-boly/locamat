@@ -59,4 +59,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function routeNotificationForWhatsApp()
+    {
+        return $this->email;
+    }
 }

@@ -2,8 +2,9 @@ const details = Array.from(document.querySelectorAll('.detail'));
 let page = document.querySelector('.page');
 const renteds = Array.from(document.querySelectorAll('.rent'));
 const bookeds = Array.from(document.querySelectorAll('.book'));
-const rentsButton = document.getElementById('rents');
+
 let allSubmitedEquipment = {};
+
 // debut voir détail
 details.forEach(detail => {
     detail.addEventListener('click', e => {
@@ -110,6 +111,7 @@ renteds.forEach(rent => {
         const submitInput = document.getElementById('rent-booked');
         submitInput.addEventListener('click', e => {
             console.log('clicked');
+            // equipmentData[equipment] = { : equipment, quantity: submitedQuantity, unitPrice};
             const dayReservation = validateData();
             if(dayReservation == undefined){
                 return;
@@ -132,6 +134,9 @@ renteds.forEach(rent => {
                 }
 
                 allSubmitedEquipment.email = emailValue;
+
+                const orderType = document.querySelector('input[name="order_type"]:checked').value;
+                allSubmitedEquipment.orderType = orderType;
                 sendData('http://127.0.0.1:8000/api/rent/equipments', allSubmitedEquipment);
             });
         });  
@@ -139,11 +144,7 @@ renteds.forEach(rent => {
     });
 });
 
-rentsButton.addEventListener('click', e => {
-    renteds.forEach(rent => {
-        rent.style.display = 'block';
-    });
-});
+
 // finS Locations
 
 // Functions
@@ -294,6 +295,7 @@ function showSubmitedEquipmentDetail(equiments){
         thead.appendChild(tr);
         table.appendChild(thead);
         let tbody = document.createElement('tbody');
+        
         for (let [key, item] of Object.entries(JSON.parse(values))) {
             let tr = document.createElement('tr');
             let tdType = document.createElement('td');
@@ -309,10 +311,13 @@ function showSubmitedEquipmentDetail(equiments){
             tr.appendChild(tdPU);
 
             let tdPT = document.createElement('td');
-            tdPT.innerHTML = item.unitPrice * item.quantity;
+            const totalPrice = item.unitPrice * item.quantity;
+            tdPT.innerHTML = totalPrice;
             tr.appendChild(tdPT);
 
             tbody.appendChild(tr);
+
+            
         }
         table.appendChild(tbody);
         dayDiv.appendChild(table);
@@ -344,10 +349,44 @@ function showSubmitedEquipmentDetail(equiments){
     phoneContainer.appendChild(phone);
     resume.appendChild(phoneContainer);
 
+    let typeOrderContainer = document.createElement('div');
+    let typeOrdeLabel = document.createElement('div');
+    typeOrdeLabel.innerHTML = 'Type de la commande';
+    typeOrderContainer.appendChild(typeOrdeLabel);
+
+
+    let rentalType = document.createElement('div');
+    rentalType.innerHTML = 'Location';
+    
+
+    let rentalInput = document.createElement('input');
+    rentalInput.type = 'radio';
+    rentalInput.id = "rental-input";
+    rentalInput.name = 'order_type';
+    rentalInput.checked = 'checked';
+    rentalInput.value = 'rent';
+    rentalType.appendChild(rentalInput);
+    typeOrderContainer.appendChild(rentalType);
+
+    let reservationType = document.createElement('div');
+    reservationType.innerHTML = 'Reservation';
+
+    let reservationInput = document.createElement('input');
+    reservationInput.type = 'radio';
+    reservationInput.id = "reservation-input";
+    reservationInput.name = 'order_type';
+    reservationInput.value = 'booked';
+    reservationType.appendChild(reservationInput);
+    typeOrderContainer.appendChild(reservationType);
+
+    resume.appendChild(typeOrderContainer);
+
     validateButton = document.createElement('button');
     validateButton.classList.add('validate');
     validateButton.textContent = 'Valider la location';
     resume.appendChild(validateButton);
 }
+
+
 
 

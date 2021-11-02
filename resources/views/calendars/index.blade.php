@@ -20,10 +20,7 @@
                 </ul>
             </nav>
         </div>
-        <div class="action-button">
-            <button id="rents">Louer</button>
-            <button id="books">Réserver</button>
-        </div>
+        
         <div class="page-container">
             <div class="content">
                 
@@ -46,8 +43,8 @@
                                 @endforeach
                                 
                                 <div class="client-action">
-                                    <button class="button rent" id="rent"><a href="">Louer</a></button>
-                                    <button class="button book"><a href="">Réserver</a></button>
+                                    <button class="button rent" id="rent"><a href="">Commander</a></button>
+                                    
                                 </div>
                             </div>
                         @else
@@ -59,7 +56,7 @@
                 @endforeach
             </div>
             <div class="resume">
-                <h2>Détail de la réservation</h2>
+                <h2>Détail de la Commande</h2>
                 <div class="resume-detail"></div>
             </div>
         </div>

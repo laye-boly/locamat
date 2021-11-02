@@ -1,0 +1,15 @@
+td, th{
+    display: block;
+    width: 200px;
+    text-align: center;
+}
+tr {
+    display: flex;
+    justify-content: space-between;
+}
+thead{
+    background: blue;
+}
+a {
+    color: blue;
+}

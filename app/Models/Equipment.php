@@ -12,20 +12,20 @@ class Equipment extends Model
 
 
     /**
-     * Définition de la relation many-to-many entre Equipement et Reservation
+     * Définition de la relation many-to-many entre Equipement et ReservationsDay
      * The roles that belong to the user.
      */
     public function reservations()
     {
-        return $this->belongsToMany(Reservation::class, "equipment_reservation", "equipment_id", "reservation_id");
+        return $this->belongsToMany(RentalOrReservationDay::class, "equipment_reservation_day", "equipment_id", "day_id")->withPivot('quantity');
     }
 
      /**
-     * Définition de la relation many-to-many entre Equipement et Rental
+     * Définition de la relation many-to-many entre Equipement et RentalDay
      */
     public function rentals()
     {
-        return $this->belongsToMany(Rental::class, "equipment_rental", "equipment_id", "rental_id");
+        return $this->belongsToMany(RentalOrReservationDay::class, "equipment_rental_day", "equipment_id", "day_id")->withPivot('quantity');
     }
 
     /**

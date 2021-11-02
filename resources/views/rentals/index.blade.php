@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Creation d'un matériel</title>
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/equipment-index.css">
-    <link rel="stylesheet" href="../../css/table.css">
-    <script src="../../js/equipment-index.js" defer></script>
+    <link rel="stylesheet" href="../../css/rental-index.css">
+    <link rel="stylesheet" href="../../../css/table.css">
+    <script src="../../js/rental-index.js" defer></script>
 </head>
 <body>
     <div class="page">
@@ -22,14 +22,14 @@
             </nav>
         </div>
         <div class="content">
-            @if (count($equipments) > 0)
+            @if (count($rentals) > 0)
                 <table>
                     <thead>
                         <tr>
-                            <th>Type Equipement</th>
-                            <th>Nombre Total</th>
-                            <th>Nombre loué</th>
-                            <th>Nombre réservé</th>
+                            <th>Date de reservation</th>
+                            <th>Dedaline de confirmation</th>
+                            <th>Statut</th>
+                            <th>Prix</th>
                             <th>Détail</th>
                             <th>Supprimer</th>
 
@@ -37,16 +37,16 @@
                         </tr>
                      </thead>
                      <tbody>
-                        @foreach ($equipments as $equipment)
-                            <tr class="equipment-no-{{$equipment->id}}">
-                                <td>{{$equipment->type}}</td>
-                                <td>{{$equipment->quantity}}</td>
-                                <td>{{$equipment->rented_quantity}}</td>
-                                <td>{{$equipment->booked_quantity}}</td>
-                                <td><a href="{{route('equipment.show', ['equipment' => $equipment])}}">Voir</a></td>
+                        @foreach ($rentals as $rental)
+                            <tr class="equipment-no-{{$rental->id}}">
+                                <td>{{$rental->created_at}}</td>
+                                <td>{{$rental->deadline}}</td>
+                                <td>{{$rental->confirmed}}</td>
+                                <td>{{$rental->price}} FCFA</td>
+                                <td><a href="{{route('rental.show', ['rental' => $rental])}}">Voir</a></td>
                                 <td>
-                                    {!! Form::open(['url' => route('equipment.delete'), 'class' => "form-equipment-delete"]) !!}
-                                        {{  Form::hidden('equipment-id', $equipment->id) }}
+                                    {!! Form::open(['url' => route('rental.delete', ['rental' => $rental]), 'class' => "form-rental-delete"]) !!}
+                                        {{  Form::hidden('rental-id', $rental->id) }}
                                         <div class="submit">
                                             {{Form::submit('supprimer', ['class'=>'btn btn-danger'])}}
                                         </div>
@@ -58,7 +58,7 @@
                 </table>
             @else
                 <div class="empty-equipment">
-                    <p>Vous n'avez pas encore d'équipements</p>
+                    <p>Vous n'avez pas encore de réservations</p>
                 </div>
             @endif
             

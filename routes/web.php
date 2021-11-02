@@ -5,6 +5,8 @@ use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\EquipmentApiController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\RentalController;
+use App\Http\Controllers\ReservationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +39,34 @@ Route::get('/equipments/{equipment}', [EquipmentController::class, 'detailEquipm
 
 
 // fin route eéquipment
+
+// début route rental
+
+Route::get('/rental/index', [RentalController::class, 'index'])->name('rental.index');
+// Route::get('/rental/create', [RentalController::class, 'create'])->name('rental.create');
+// Route::post('/rental/store', [RentalController::class, 'store'])->name('rental.store');
+Route::get('/rental/show/{rental}', [RentalController::class, 'show'])->name('rental.show');
+// Route::get('/rental/edit/{rental}', [RentalController::class, 'edit'])->name('rental.edit');
+// Route::post('/rental/update/{rental}', [RentalController::class, 'update'])->name('rental.update');
+Route::post('/rental/delete/{rental}', [RentalController::class, 'delete'])->name('rental.delete');
+
+
+
+// fin route rental
+
+// début route reservation
+
+Route::get('/reservation/index', [ReservationController::class, 'index'])->name('reservation.index');
+// Route::get('/reservation/create', [ReservationController::class, 'create'])->name('reservation.create');
+// Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
+Route::get('/reservation/show/{reservation}', [ReservationController::class, 'show'])->name('reservation.show');
+// Route::get('/reservation/edit/{rental}', [ReservationController::class, 'edit'])->name('reservation.edit');
+// Route::post('/reservation/update/{reservation}', [ReservationController::class, 'update'])->name('reservation.update');
+Route::post('/reservation/delete/{reservation}', [ReservationController::class, 'delete'])->name('reservation.delete');
+
+
+
+// fin route reservation
 
 // debut route image
 

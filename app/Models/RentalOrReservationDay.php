@@ -9,12 +9,30 @@ class RentalOrReservationDay extends Model
 {
     use HasFactory;
 
+    // /**
+    //  * Inverse de la relation one-to-many entre Equipment et RentalOrReservationDay
+    //  */
+    // public function equipment()
+    // {
+    //     return $this->belongsTo(Equipment::class);
+    // }
+
     /**
-     * Inverse de la relation one-to-many entre Equipment et RentalOrReservationDay
+     * Définition de l'inverse de la relation many-to-many entre Equipement et RentalDay
+     * The roles that belong to the user.
      */
-    public function equipment()
+    public function rentedEquipments()
     {
-        return $this->belongsTo(Equipment::class);
+        return $this->belongsToMany(Equipment::class, "equipment_rental_day", "day_id", "equipment_id")->withPivot('quantity');
+    }
+
+     /**
+     * Définition de l'inverse de la relation many-to-many entre Equipement et Reservation
+     * The roles that belong to the user.
+     */
+    public function reservedEquipments()
+    {
+        return $this->belongsToMany(Equipment::class, "equipment_reservation_day", "day_id", "equipment_id")->withPivot('quantity');
     }
 
     /**
