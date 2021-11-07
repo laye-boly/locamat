@@ -7,6 +7,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\DevisController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,3 +80,10 @@ Route::post('/image/delete', [ImageController::class, 'delete'])->name('image.de
 Route::get('/calendar/index', [CalendarController::class, 'index'])->name('calendar.index');
 
 // fin route calendar
+
+// debut route devis
+
+Route::get('/devis/index', [DevisController::class, 'index'])->name('devis.index');
+Route::get('/devis/show', [DevisController::class, 'show'])->name('devis.show');
+
+// fin route devis

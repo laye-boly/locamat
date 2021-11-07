@@ -6,6 +6,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\EquipmentApiController;
 use App\Http\Controllers\OrderApiController;
+use App\Http\Controllers\DevisController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // debut route api equipement
 Route::post('/equipment/delete', [EquipmentController::class, 'delete'])->name('equipment.delete');
 Route::get('/equipments/{equipment}', [EquipmentApiController::class, 'getEquipment'])->name('equipment.detail');
+Route::get('/equipments/type/pu', [EquipmentApiController::class, 'getEquipmentNamePu'])->name('equipment.type.pu');
 
 // fin route equipement
 
@@ -38,3 +40,9 @@ Route::post('/image/delete', [ImageController::class, 'delete'])->name('image.de
 Route::post('/rent/equipments', [OrderApiController::class, 'store'])->name('rent.store');
 
 // fin route location
+
+// debut route api devis 
+
+Route::post('/devis/link/construct', [DevisController::class, 'devisLinkConstructApi'])->name('devis.link');
+
+// fin route devis

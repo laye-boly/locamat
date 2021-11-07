@@ -1,0 +1,21 @@
+.content-devis{
+    display: flex;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 60%;
+}
+.container-devis{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.button {
+    background-color: green;
+    padding: 25px;
+    border-radius: 25px;
+    color: #fff;
+}
