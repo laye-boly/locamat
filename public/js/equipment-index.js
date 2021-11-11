@@ -1,5 +1,4 @@
-console.log("hi");
-
+const host = window.location.origin;
 async function deleteEquipment(url, data = {}){
 
     try{
@@ -51,6 +50,6 @@ formEquipmentDelete.forEach(form => {
 
         const url = `${window.location.host}/image/delete`;
         console.log(url)
-        deleteEquipment('http://127.0.0.1:8000/api/equipment/delete', data);
+        deleteEquipment(host+'/api/equipment/delete', data);
     });
 });

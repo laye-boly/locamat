@@ -11,15 +11,7 @@
 </head>
 <body>
     <div class="page">
-        <div class="header">
-            <nav class="nav-container">
-                <ul class="nav-item-container">
-                    <li class="nav-item"><a href="#">Gérer mes équipments</a></li>
-                    <li class="nav-item"><a href="#">Gérer mes équipments</a></li>
-                    <li class="nav-item"><a href="#">Gérer mes locations</a></li>
-                </ul>
-            </nav>
-        </div>
+        @include('menu.menu-header')
         <div class="content">
             <div class="detail-header">
                 <h2>Details de votre Réservation</h2>

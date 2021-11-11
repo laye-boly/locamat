@@ -12,15 +12,7 @@
 </head>
 <body>
     <div class="page">
-        <div class="header">
-            <nav class="nav-container">
-                <ul class="nav-item-container">
-                    <li class="nav-item"><a href="#">Gérer mes équipments</a></li>
-                    <li class="nav-item"><a href="#">Gérer mes équipments</a></li>
-                    <li class="nav-item"><a href="#">Gérer mes locations</a></li>
-                </ul>
-            </nav>
-        </div>
+        @include('menu.menu-header')
         <div class="content">
             {!! Form::open(['url' => route('equipment.update', ['equipment' => $equipment]), 'files' => true, 'class' => 'form-edit']) !!}
                 <div class="@if($errors->any()) error-container @elseif(session('success')) success-container @elseif(session('warning')) warning-container @endif">

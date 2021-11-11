@@ -1,4 +1,5 @@
-getEquipments('http://127.0.0.1:8000/api/equipments/type/pu');
+const host = window.location.origin;
+getEquipments(host+'/api/equipments/type/pu');
 async function getEquipments(url){
    
     try{
@@ -25,7 +26,7 @@ async function getEquipments(url){
             let devisData = validateData();
             console.log(devisData);
             showDevis(devisData);
-            sendData('http://127.0.0.1:8000/api/devis/link/construct', devisData);
+            sendData(host+'/api/devis/link/construct', devisData);
        });
     }catch(error){
         console.error(error);

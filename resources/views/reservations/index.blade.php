@@ -12,15 +12,7 @@
 </head>
 <body>
     <div class="page">
-        <div class="header">
-            <nav class="nav-container">
-                <ul class="nav-item-container">
-                    <li class="nav-item"><a href="#">Gérer mes équipments</a></li>
-                    <li class="nav-item"><a href="#">Gérer mes équipments</a></li>
-                    <li class="nav-item"><a href="#">Gérer mes locations</a></li>
-                </ul>
-            </nav>
-        </div>
+        @include('menu.menu-header')
         <div class="content">
             @if (count($reservations) > 0)
                 <table>

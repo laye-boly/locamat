@@ -2,8 +2,9 @@ const details = Array.from(document.querySelectorAll('.detail'));
 let page = document.querySelector('.page');
 const renteds = Array.from(document.querySelectorAll('.rent'));
 const bookeds = Array.from(document.querySelectorAll('.book'));
+const host = window.location.origin;
 
-let allSubmitedEquipment = {};
+let allSubmitedEquipment = {}; 
 
 // debut voir détail
 details.forEach(detail => {
@@ -14,7 +15,7 @@ details.forEach(detail => {
         if(container){
             page.removeChild(container);
         }
-        fetch(`http://127.0.0.1:8000/api/equipments/${detail.id}`)
+        fetch(`${host}/api/equipments/${detail.id}`)
             .then(response => response.json())
             .then(data => {
                 const equipment = data[0];

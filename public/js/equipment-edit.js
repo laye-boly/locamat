@@ -1,4 +1,4 @@
-console.log("hi");
+const host = window.location.origin;
 
 async function deleteImage(url, data = {}){
     const imagesNumberDiv = document.getElementById('images-number');
@@ -56,8 +56,7 @@ formImageDelete.forEach(form => {
             data[dataNode.getAttribute('name')] = dataNode.value;
         } );
 
-        const url = `${window.location.host}/image/delete`;
-        console.log(url)
-        deleteImage('http://127.0.0.1:8000/image/delete', data);
+       
+        deleteImage(host+'/image/delete', data);
     });
 });

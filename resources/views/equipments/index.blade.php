@@ -12,24 +12,17 @@
 </head>
 <body>
     <div class="page">
-        <div class="header">
-            <nav class="nav-container">
-                <ul class="nav-item-container">
-                    <li class="nav-item"><a href="#">Gérer mes équipments</a></li>
-                    <li class="nav-item"><a href="#">Gérer mes équipments</a></li>
-                    <li class="nav-item"><a href="#">Gérer mes locations</a></li>
-                </ul>
-            </nav>
-        </div>
+        @include('menu.menu-header')
+        <h3><a href="{{route('equipment.create')}}">Ajouter un nouveau type d'équipement</a></h3>
         <div class="content">
+            
             @if (count($equipments) > 0)
                 <table>
                     <thead>
                         <tr>
                             <th>Type Equipement</th>
                             <th>Nombre Total</th>
-                            <th>Nombre loué</th>
-                            <th>Nombre réservé</th>
+                            
                             <th>Détail</th>
                             <th>Supprimer</th>
 
@@ -41,8 +34,7 @@
                             <tr class="equipment-no-{{$equipment->id}}">
                                 <td>{{$equipment->type}}</td>
                                 <td>{{$equipment->quantity}}</td>
-                                <td>{{$equipment->rented_quantity}}</td>
-                                <td>{{$equipment->booked_quantity}}</td>
+                                
                                 <td><a href="{{route('equipment.show', ['equipment' => $equipment])}}">Voir</a></td>
                                 <td>
                                     {!! Form::open(['url' => route('equipment.delete'), 'class' => "form-equipment-delete"]) !!}

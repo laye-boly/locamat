@@ -91,7 +91,7 @@ class OrderApiController extends Controller
                   ->create("whatsapp:+221$phone", // to 
                            array( 
                                "from" => "whatsapp:$wa_from",       
-                               "body" => "Votre commande a été bien prise en compte. Veuillez trouvez les détail en cliquant sur ce lien : " 
+                               "body" => "Votre commande a été bien prise en compte. Veuillez trouvez les détail en cliquant sur ce lien : $link" 
                            ) 
                   ); 
 

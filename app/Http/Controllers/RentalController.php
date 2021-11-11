@@ -26,5 +26,7 @@ class RentalController extends Controller
             DB::table('equipment_rental_day')->where('day_id', '=', $dayId)->delete();
             $day->delete();
         }
+
+        return redirect()->route('rental.index');
     }
 }

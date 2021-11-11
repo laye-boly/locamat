@@ -18,7 +18,8 @@ class ReservationController extends Controller
     }
 
     public function delete(Reservation $reservation){
-        $days = $reservation->rentalDays;
+        $days = $reservation->reservationDays;
+        
         $reservationId = $reservation->id;
         $reservation->delete();
         DB::table('rental_day')->where('rental_id', '=', $reservationId)->delete();
@@ -27,5 +28,7 @@ class ReservationController extends Controller
             DB::table('equipment_reservation_day')->where('day_id', '=', $dayId)->delete();
             $day->delete();
         }
+
+        return redirect()->route('reservation.index');
     }
 }
